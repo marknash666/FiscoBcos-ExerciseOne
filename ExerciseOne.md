@@ -1,5 +1,5 @@
 1 查看区块高度
-![](https://github.com/marknash666/FiscoBcos-ExerciseOne/raw/master/image/1.png?raw=true)
+![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image/1.png?raw=true)
 2 获取区块数据
 
 3 部署HelloWorld智能合约
