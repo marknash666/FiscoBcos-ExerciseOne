@@ -7,7 +7,7 @@
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image/3.png?raw=true)
 # 4. 获取区块数据
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image/5.png?raw=true)
-#5. 查看区块高度
+# 5. 查看区块高度
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image/4.png?raw=true)
 
 # 6. 调用智能合约
