@@ -22,16 +22,17 @@ fi
 ```
 There is no doubt that this is the start of the sh file, we can see the exception handling when we forget to add the -l or -f parameter in this part of code. Let's start from here and trace the building of FISCO BCOS's Consortium Blockchain.
 
-`dir_must_not_exists ${output_dir}
-mkdir -p "${output_dir}"`
-
+```
+dir_must_not_exists ${output_dir}
+mkdir -p "${output_dir}"
+```
 The code in line 920 and 921 call the *dir\_must\_not\_exists* function to checked that there is no such a file directory as nodes (the default value of *output_dir* is "nodes") and creat the directory, else it'll throw an exception.
 
 ### 2. Binary File Process
-Then, the code from line 929 to 959 checks whether we are using docker mode (if we use macos, we have to either use docker mode or use -e option to specific fisco-bcos binary path) , after that it would download the the corresponding version of binary files or check the existing files to ensure the match of version.
+The code from line 929 to 959 checks whether we are using docker mode (if we use macos, we have to either use docker mode or use -e option to specific the path of fisco-bcos binary) . After that, it would download the the corresponding version of binary files or check the existing files to ensure the match of version.
 
 ### 3. Generate Cert Configuration 
-Then, the code from line 960 to 965 uses *generate\_cert_conf* function to generate a cert config file or copy the designated file to the current directory.
+From line 960 to 965 , the bash uses *generate\_cert_conf* function to generate a cert config file or copy the designated file to the current directory.
 
 ### 4. CA key 
 Then, the code from line 976 to 991 would check whether we have an existing CA file. If not, the code would call the *gen_chain_cert* and *gen_agency_cert* function to generate ca.key.
