@@ -1,8 +1,11 @@
 
 ## 1. 查看区块高度
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/1.png?raw=true)
+通过getBlockNumber得到区块的高度
+
 ## 2. 部署HelloWorld智能合约
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/2.png?raw=true)
+通过deploy指令部署并获取合约地址
 ## 3. 使用查看getDeployLog
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/3.png?raw=true)
 ## 4. 获取区块数据
