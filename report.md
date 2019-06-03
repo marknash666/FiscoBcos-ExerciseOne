@@ -40,8 +40,16 @@ The code from line 976 to 991 would check whether we have an existing CA file. I
 ### 5. GuoMi Chain(optional) CA key
 The bash provides with a guomi_mode option that would enable the building of a blockchain of GuoMi version. If the option is set to true, the bash would call the *check_and_install_tassl* to first create a TASSL environment, and use *generate_cert_conf_gm* function to generate gmcert.cnf configuration file. The following process is similar to the described process in 4, while the functions are replced by the GuoMi version, for instance, *gen_chain_cert* is replaced by *gen_chain_cert_gm*.
 
-### 5. Generating Key 
-The code from line 1008 to 1029 would set up the paramters that is related to the node generating and check the existence of the directory. Line 1031 to
+### 6. Generating Key 
+The code from line 1008 to 1025 would set up the paramters that is related to the node generating. 
+
+Line 1026 to 1107 is a Double Loop. The outer level of Loop is determined by the numbers of nodes, it would first check the existence of the directory and throws exception when the directory already exists. 
+
+The inner Loop would do the following:
+
+1. call *gen_node_cert* to generate cetification of nodes, create a configuration file directory(the default value of *conf_path* is conf), then removes the unwanted files and finally moves all the file in the current directory to the conf directory.
+2. checks the length and the first two number of privateKey to ensure its legality, otherwise the whole node directory would be deleted.
+3. do the similar privateKey checking when the GuoMi option is enabled. The differences are that conf_path is replaced by gm_conf_path and the privateKey of GuoMi should start with "00".
 
 
 
