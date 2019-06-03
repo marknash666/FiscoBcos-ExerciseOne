@@ -39,7 +39,7 @@ Then, the code from line 976 to 991 would check whether we have an existing CA f
 ### 5. GuoMi Chain(optional) CA key
 Then, the code from line 993 to 1004 would check whether we choosed to build a blockchain of GuoMi version. If yes, the code would call the *check_and_install_tassl* to first create a TASSL environment, and use *generate_cert_conf_gm* function to generate gmcert.cnf configuration file. The following process is similar to the described process aboved, and the functions are replced by the GuoMi version.
 
-
+### 5. Generating Key 
 The code from line 1008 to 1117 would check whether we choosed to build a blockchain of GuoMi version. If yes, the code would call the *check_and_install_tassl* to first create a TASSL environment, and use *generate_cert_conf_gm* function to generate gmcert.cnf configuration file. The following process is similar to the described process aboved, and the functions are replced by the GuoMi version.
 
 
