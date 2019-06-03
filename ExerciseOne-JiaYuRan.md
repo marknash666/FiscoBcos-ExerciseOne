@@ -24,6 +24,7 @@
 
 ## 7. 再次查看区块高度
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/7.png?raw=true)
+
 再次通过getBlockNumber获取区块高度，发现部署之后区块高度增加了1
 
 ## 8. 获取区块数据
