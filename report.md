@@ -49,7 +49,8 @@ The inner Loop would do the following:
 
 1. call *gen_node_cert* to generate cetification of nodes, create a configuration file directory(the default value of *conf_path* is conf), then removes the unwanted files and finally moves all the file in the current directory to the conf directory.
 2. checks the length and the first two number of privateKey to ensure its legality, otherwise the whole node directory would be deleted.
-3. do the similar privateKey checking when the GuoMi option is enabled. The differences are that conf_path is replaced by gm_conf_path and the privateKey of GuoMi should start with "00".
+3. do the similar privateKey checking when the GuoMi option is enabled. The differences are that conf_path is replaced by gm_conf_path and the privateKey of GuoMi should start with "00"
+4. do different operation with the configuration files according to GuoMi or non-GuoMi(Line 1065 to 1086)
 
 
 
