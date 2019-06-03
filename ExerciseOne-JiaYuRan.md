@@ -46,8 +46,8 @@
 再次通过getBlockNumber获取区块高度，可以发现进行CNS部署之后区块高度增加了2
 
 ## 12. 获取区块数据
-![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/11.png?raw=true)
-
+![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/block3.png?raw=true)
+![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/block4.png?raw=true)
 
 
 
