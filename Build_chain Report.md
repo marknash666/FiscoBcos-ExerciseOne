@@ -2,7 +2,7 @@
 
 
 ## Implementation body
-The last four row of code showed below are the functions called during the actual implementation of the shell file.
+The last four row of code shown below are the functions called during the actual implementation of the shell file.
 ```
 check_env
 parse_params $@
@@ -10,7 +10,34 @@ main
 print_result
 ```
 
-## Part One - main()
+## Part One - check_env()
+```
+check_env() {
+    [ ! -z "$(openssl version | grep 1.0.2)" ] || [ ! -z "$(openssl version | grep 1.1)" ] || [ ! -z "$(openssl version | grep reSSL)" ] || {
+        echo "please install openssl!"
+        #echo "download openssl from https://www.openssl.org."
+        echo "use \"openssl version\" command to check."
+        exit $EXIT_CODE
+    }
+    if [ ! -z "$(openssl version | grep reSSL)" ];then
+        export PATH="/usr/local/opt/openssl/bin:$PATH"
+    fi
+    if [ "$(uname)" == "Darwin" ];then
+        OS="macOS"
+    elif [ "$(uname -s)" == " Linux " ];then
+        OS="Linux"
+    fi
+}
+
+```
+This function ensures that the user's environment is capable of running the following code. It checks the existence of openssl (-z String would be true while the length of String is zero, so the first judgment means that the shell would stop running when there is no any version of openssl) and save the typre ofcurrent system into parameter OS.
+
+## Part Two - parse_params()
+
+This part of code processes the options we set when implementing the shell file. Detailed explanation can refer to [here][1]. For the previous Exercise on class, we used the -l option to specify the chain to be generated and the number of nodes under each IP.
+[1]:https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/build_chain.html#id4
+
+## Part Three - main()
 ### 1. Option Check
 First of all, we go to line 904.
 
