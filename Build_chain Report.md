@@ -35,6 +35,7 @@ This function ensures that the user's environment is capable of running the foll
 ## Part Two - parse_params()
 
 This part of code processes the options we set when implementing the shell file. Detailed explanation can refer to [here][1]. For the previous Exercise on class, we used the -l option to specify the chain to be generated and the number of nodes under each IP.
+
 [1]:https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/build_chain.html#id4 "here"
 
 ## Part Three - main()
