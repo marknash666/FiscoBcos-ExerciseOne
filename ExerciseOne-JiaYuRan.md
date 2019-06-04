@@ -25,10 +25,14 @@
 ## 7. 调用智能合约
 ### 7.1 调用智能合约
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/5.png?raw=true)
-调用get接口获取name变量 此处的合约地址是deploy指令返回的地址
+调用get接口获取name变量，具体指令为:call + 合约名称 + 合约地址 + get 
+
+此处的合约地址是deploy指令返回的地址
 ### 7.2 调用智能合约
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/6.png?raw=true)
-调用set设置name变量 此处的合约地址是deploy指令返回的地址
+调用set设置name变量，具体指令为:call + 合约名称 + 合约地址 + set + "String"
+
+此处的合约地址是deploy指令返回的地址
 
 ## 8. 再次查看区块高度
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/7.png?raw=true)
@@ -49,5 +53,8 @@
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/block3.png?raw=true)
 ![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/block4.png?raw=true)
 
+## 12. 调用CNS智能合约
+![](https://github.com/marknash666/FiscoBcos-ExerciseOne/blob/master/image-ExerciseOne/cns.png?raw=true)
+CNS合约的调用相比普通合约省略了地址的声明，会显得更加简洁和清晰
 
 
