@@ -9,14 +9,14 @@ There are 38 functions in total. Mainly, we could distribute them into 5 classes
 4. fail_message(): Prints the fail message
 
 ### 2. File Generation  
-There are 18 functions for generating configuration files, certification files and keys. We would gonna see them in the following analysis of main(). It worth metion that the function **gen_cert_secp256k1** means using ECC for digital signature and its curve is a standard **secp256k1**, the encryption curve chosen by Bitcoin.
+There are 18 functions for generating configuration files, certification files and keys. We would gonna see them in the following analysis of main(). It is worth mentioning that the function **gen_cert_secp256k1** means using ECC for digital signature and its curve is a standard **secp256k1**, the encryption curve chosen by BitCoin.
 
 ### 3. Utilities
 1. parse\_ip\_config(): used to parse the IP list file when -f option is enabled
 2. getname(): generates a string according to the current path
-3. file\_must\_exists(): makes sure that the specified file exisit, or the script would stop
-4. dir\_must\_exists(): makes sure that the specified directory exisit, or the script would stop
-5. dir\_must\_not\_exists(): makes sure that the specified file do not exisit, or the script would stop
+3. file\_must\_exists(): makes sure that the specified file exist, or the script would stop
+4. dir\_must\_exists(): makes sure that the specified directory exist, or the script would stop
+5. dir\_must\_not\_exists(): makes sure that the specified file do not exist, or the script would stop
 6. check\_and_install\_tassl(): installs the tassl if it does not exist
 7. check\_name(): ensure that the string do not have any character except ^[a-zA-Z0-9._-]+$
 
@@ -49,7 +49,7 @@ check_env() {
 }
 
 ```
-This function ensures that the user's environment is capable of running the following code. It checks the existence of openssl (-z String would be true while the length of String is zero, so the first judgment means that the shell would stop running when there is no any version of openssl) and save the typre ofcurrent system into parameter OS.
+This function ensures that the user's environment is capable of running the following code. It checks the existence of openssl (-z String would be true while the length of String is zero, so the first judgment means that the shell would stop running when there is no any version of openssl) and save the typre of current system into parameter OS.
 
 ### Part Two - parse_params()
 
