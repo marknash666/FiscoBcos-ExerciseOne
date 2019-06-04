@@ -73,7 +73,7 @@ The code from line 929 to 959 checks whether we are using docker mode (if we use
 In line 960 to 965, the bash uses *generate\_cert_conf* function to generate a certification config file or copy the designated file to the current directory.
 
 ### 4. CA key 
-The code from line 976 to 991 would check whether we have an existing CA file. If not, the code would call the *gen_chain_cert* and *gen_agency_cert* function to generate ca.key.
+The code from line 976 to 991 would check whether we have an existing CA file. If not, the code would call the **gen_chain_cert** and *gen_agency_cert* function to generate ca.key.
 
 ### 5. GuoMi Chain(optional) CA key
 The bash provides with a guomi_mode option that would enable the building of a blockchain of GuoMi version. If the option is set to true, the bash would call the *check_and_install_tassl* to first create a TASSL environment, and use *generate_cert_conf_gm* function to generate gmcert.cnf configuration file. The following process is similar to the described process in 4, while the functions are replced by the GuoMi version, for instance, *gen_chain_cert* is replaced by *gen_chain_cert_gm*.
