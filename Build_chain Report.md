@@ -9,7 +9,7 @@ There are 38 functions in total. Mainly, we could distribute them into 5 classes
 4. fail_message(): Prints the fail message
 
 ### 2. File Generation  
-There are 18 functions for generating configuration files, certification files and keys. We would gonna see them in the following analysis of main(). It is worth mentioning that the function **gen_cert_secp256k1** means using ECC for digital signature and its curve is a standard **secp256k1**, the encryption curve chosen by BitCoin.
+There are 18 functions for generating configuration files, certification files and keys. We would see them in the following analysis of main(). It is worth mentioning that the function **gen_cert_secp256k1** means using ECC for digital signature and its curve is a standard **secp256k1**, the encryption curve chosen by BitCoin.
 
 ### 3. Utilities
 1. parse\_ip\_config(): used to parse the IP list file when -f option is enabled
