@@ -24,10 +24,10 @@
 ### getSealerList
 >运行switch或者s，切换到指定群组。群组号显示在命令提示符前面
 
-我们采用**-l**来建立节点的时候，所有节点属于同一个机构和群组。
+我们采用 **-l** 来建立节点的时候，所有节点属于同一个机构和群组。
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-console/2_kindsofnode.png?raw=true)
 
-因此要建立多个群组的话需要使用**-f**根据配置文件生成节点
+因此要建立多个群组的话需要使用 **-f** 根据配置文件生成节点
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-console/ipconf.png?raw=true)
 
 ### switch
