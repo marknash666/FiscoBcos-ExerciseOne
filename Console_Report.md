@@ -54,4 +54,4 @@
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-console/getnodeversion.png?raw=true)
 
 ## 总结
-#### 这一次的控制台使用实验让我了解如何使用build_chain.sh创建多群组的区块联盟链，如何在控制台内切换群组和查看公式节点列表和节点版本的方法。
+#### 这一次的控制台使用实验让我了解如何使用build_chain.sh创建多群组的区块联盟链，如何在控制台内切换群组和查看公式节点列表与节点版本的方法。
