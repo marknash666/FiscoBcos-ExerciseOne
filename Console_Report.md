@@ -19,18 +19,18 @@
 >- 调用合约: [call](./console.html#call)
 >- 切换群组: [switch](./console.html#switch)
 
-此前我已经使用过getBlockNumber，deploy和call，因此现在我们首先来使用getSealerList和switch。
+此前我已经使用过getBlockNumber，deploy和call，因此现在我们首先来使用getSealerList和switch
 
 ### getSealerList
 >运行switch或者s，切换到指定群组。群组号显示在命令提示符前面
 
-我们采用 **-l** 来建立节点的时候，所有节点属于同一个机构和群组。
+我们采用 **-l** 来建立节点的时候，所有节点属于同一个机构和群组
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-console/2_kindsofnode.png?raw=true)
 
 因此要建立多个群组的话需要使用 **-f** 根据配置文件生成节点
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-console/groups.png?raw=true)
 
-ipconf配置文件内容如下
+**ipconf**配置文件内容如下
 ```
 127.0.0.1:2 agencyA 1,2,3
 127.0.0.1:2 agencyB 1
@@ -38,7 +38,8 @@ ipconf配置文件内容如下
 127.0.0.1:2 agencyD 3
 ```
 
-127.0.0.1:2 agencyA 1,2,3 表示ip为127.0.0.1的机器上有两个节点，这两个节点属于机构agencyA，属于group1,group2和group3。
+127.0.0.1:2 agencyA 1,2,3 表示ip为127.0.0.1的机器上有两个节点，这两个节点属于机构agencyA，属于group1,group2和group3
+
 
 
 
