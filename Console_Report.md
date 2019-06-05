@@ -30,7 +30,9 @@
 因此要建立多个群组的话需要使用 **-f** 根据配置文件生成节点
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-console/ipconf.png?raw=true)
 
-如192.168.0.1:2 agency1 1,2表示ip为192.168.0.1的机器上有两个节点，这两个节点属于机构agency1，属于group1和group2
+目前将192.168.0.1:2节点sdk目录下的ca.crt、node.crt和node.key文件拷贝到console的conf目录下。192.168.0.1:2 agency1 1,2表示ip为192.168.0.1的机器上有两个节点，这两个节点属于机构agency1，属于group1和group2。
+
+
 
 
 ### switch
