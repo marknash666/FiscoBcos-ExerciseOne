@@ -21,7 +21,7 @@
 
 此前我已经使用过getBlockNumber，deploy和call，因此现在我们首先来使用getSealerList和switch
 
-### getSealerList
+### switch
 >运行switch或者s，切换到指定群组。群组号显示在命令提示符前面
 
 我们采用 **-l** 来建立节点的时候，所有节点属于同一个机构和群组
@@ -40,9 +40,12 @@
 
 127.0.0.1:2 agencyA 1,2,3 表示ip为127.0.0.1的机器上有两个节点，这两个节点属于机构agencyA，属于group1,group2和group3
 
+为了与多群组架构相匹配，我们还需要修改applicationContext.xml配置文件，否则与多群组相关的操作将会报错。具体设置参考[多群组架构文档](https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/tutorial/group_use_cases.html)
+
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-console/switch.png?raw=true)
+调用 **getGroupList**可以看到当前有三个群组，通过switch可以切换到其他组
 
 
-
-
-
-### switch
+### getSealerList
+用于查看共识节点列表
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-console/getsealerlist.png?raw=true)
