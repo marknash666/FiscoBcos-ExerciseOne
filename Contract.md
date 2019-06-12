@@ -1,0 +1,2 @@
+https://cryptozombies.io/en/lesson
+僵尸教程的第一节课程主要是对solidity语言的一些非常基础的参数定义、函数的可见性、参数返回和universal命名规则、函数的pure和view、事件等非常基础的元素做了一个小introduction。
