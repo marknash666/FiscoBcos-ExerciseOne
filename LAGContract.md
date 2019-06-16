@@ -51,7 +51,7 @@ function transfer(address _to, uint256 _value) public {
     }
 ```
 
-6.balanceOf
+6. balanceOf
 ```
  function balanceOf(address _owner) view public returns(uint256){
         return balances[_owner];//查看传入地址所拥有的积分数
