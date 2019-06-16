@@ -8,7 +8,6 @@ string symbol = "LAG";//默认积分代号
 uint256 totalSupply;//积分总量
 mapping (address => uint256) private balances;//记录账号持有积分数目的结构体(key为address，value为uint256)
 event transferEvent(address from, address to,uint256 value);//定义了一个名为transferEvent的事件，该事件会被Web3.js监听并作出响应
-
 ```
 
 2. 构造函数
