@@ -64,8 +64,9 @@ function transfer(address _to, uint256 _value) public {
 **具体实现：**
 ```
 address contract_holder;//储存合约持有者的地址
-modifier onlyOwner(address){
-        require(msg.sender==contract_holder);//只能合约持有者进行操作的修饰函数
+
+*modifier onlyOwner(address){*
+        **require(msg.sender==contract_holder)**;//只能合约持有者进行操作的修饰函数
         _;
     }
 
