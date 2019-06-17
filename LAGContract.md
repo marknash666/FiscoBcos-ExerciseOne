@@ -91,3 +91,39 @@ constructor (uint256 initialSupply, string creditName,string creditSymbol) publi
         contract_holder=msg.sender;//构造函数中添加合约持有者地址的初始化
     }
 ```
+
+2. 允许商家进行积分发放活动</br>
+**构思：积分优惠活动指的是商家可以在活动期间为前来消费的消费者发送更多的积分，优惠的设置只能被合约持有者操控**</br>
+**具体实现：**</br>
+以下是新增加的代码
+```
+uint256 sale = 1;//储存优惠倍数，默认为1
+
+function setSale(uint256 new_sale) public onlyOwner(msg.sender){
+        sale=new_sale;//设置新的优惠倍数，只能由合约持有者操控
+    }
+    
+    function getSale() view public returns(uint256) {
+        return sale;//允许任何人查看当前优惠
+    }
+```
+以下是对transfer函数的修改
+```
+function _transfer(address _from,address _to,uint _value) internal{
+        
+        require(!(_to == 0x0),"The address should be the burning address!");
+        require(balances[_from]>=_value,"No enough supply.");
+        require(balances[_to]+_value > balances[_to],"Expected a positive value of supply.");
+        
+        uint previousBalances = balances[_from]+ balances[_to];
+        if(msg.sender==contract_holder)//增加判断
+        _value=_value*sale;//当传出积分者为合约持有者的时候应用优惠政策
+        
+        balances[_from] -= _value;
+        balances[_to] += _value;
+        
+        emit transferEvent(_from,_to,_value);
+        assert(balances[_from]+balances[_to] == previousBalances);
+        
+    }
+```
