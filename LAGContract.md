@@ -79,7 +79,7 @@ constructor (uint256 initialSupply, string creditName,string creditSymbol) publi
     }
 
 function addSupply(uint256 amountofSupply) public onlyOwner(msg.sender) {
-        totalSupply= amountofSupply+totalSupply;//修改积分总量
+        totalSupply= amountofSupply+totalSupply;//修改积分发放总量
         balances[msg.sender] += amountofSupply;//增加合约持有者的积分
     }
 
