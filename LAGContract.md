@@ -107,7 +107,7 @@ function setSale(uint256 new_sale) public onlyOwner(msg.sender){
         return sale;//允许任何人查看当前优惠
     }
 ```
-以下是对transfer函数的修改
+以下是对_transfer函数的修改
 ```
 function _transfer(address _from,address _to,uint _value) internal{
         
