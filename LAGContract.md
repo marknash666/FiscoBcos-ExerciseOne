@@ -62,20 +62,13 @@ function transfer(address _to, uint256 _value) public {
 1. 积分总量增加</br>
 **构思：积分总量的添加只能由合约持有者进行操作，因此考虑增加修饰函数和一个储存合约持有者地址的数据，在执行添加操作前判断是否为合约持有者**</br>
 **具体实现：**
+以下是新增加的代码
 ```
 address contract_holder;//储存合约持有者的地址
 
 modifier onlyOwner(address){
         require(msg.sender==contract_holder);//只能合约持有者进行操作的修饰函数
         _;
-    }
-
-constructor (uint256 initialSupply, string creditName,string creditSymbol) public{
-        totalSupply =initialSupply;
-        balances[msg.sender]=totalSupply;
-        name=creditName;
-        symbol=creditSymbol;
-        contract_holder=msg.sender;//构造函数中添加合约持有者地址的初始化
     }
 
 function addSupply(uint256 amountofSupply) public onlyOwner(msg.sender) {
@@ -85,5 +78,15 @@ function addSupply(uint256 amountofSupply) public onlyOwner(msg.sender) {
 
  function getContractOwner() view public returns(address){
         return contract_holder;//增加一个查看合约持有者地址的函数
+    }
+```
+以下是对构造函数的修改
+```
+constructor (uint256 initialSupply, string creditName,string creditSymbol) public{
+        totalSupply =initialSupply;
+        balances[msg.sender]=totalSupply;
+        name=creditName;
+        symbol=creditSymbol;
+        contract_holder=msg.sender;//构造函数中添加合约持有者地址的初始化
     }
 ```
