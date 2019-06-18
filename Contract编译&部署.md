@@ -28,9 +28,18 @@ build虽然成功，但是出现了error和warning
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/gradlew_build_virtual.png)
 
 ## 合约编译
+**本次编译运行环境为IntelliJ IDEA**
+
 **官方文档**
 ># Spring Boot Starter
->Solidity合约文件转Java合约文件测试
+>### Solidity合约文件转Java合约文件测试
 >提供SolidityFunctionWrapperGeneratorTest测试类测试Solidity合约文件转Java合约文件。
->........<br/>
+><br/>........<br/>
 >该测试案例将src/test/resources/contract目录下的所有Solidity合约文件(默认提供HelloWorld合约)均转为相应的abi和bin文件，保存在src/test/resources/solidity目录下。然后将abi文件和对应的bin文件组合转换为Java合约文件，保存在src/test/java/org/fisco/bcos/temp目录下。SDK将利用Java合约文件进行合约部署与调用。
+
+1. 将LAGCredit.sol放到spring-boot-starter/scr/test/resources/contract目录下
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/compile_1.png)
+2. 然后运行官方提供的Solidity合约文件转Java合约文件测试类
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/contract_2.png)
+3. 成功的话，我们可以在spring-boot-starter/src/test/java/org/fisco/bcos/temp目录下得到LAGCredit.java，然后将其拷贝到main目录下供开发使用
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/contract_3.png)
