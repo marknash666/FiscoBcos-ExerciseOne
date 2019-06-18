@@ -19,7 +19,7 @@
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/java_env.png)
 
 build比较成功，且没有warning或error
-![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/gradlew_build.png)
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/gradlew_build1.png)
 ### 在提供的virtualbox环境下的build
 虚拟机用的是openjdk 11.0.3版本
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/gradlew_build_virtual.png)
@@ -43,3 +43,6 @@ build虽然成功，但是出现了error和warning
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/contract_2.png)
 3. 成功的话，我们可以在spring-boot-starter/src/test/java/org/fisco/bcos/temp目录下得到LAGCredit.java，然后将其拷贝到main目录下供开发使用
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/contract_3.png)
+
+## SDK开发
+根据老师提供的实验PPT完成LAGCredit类的编写
