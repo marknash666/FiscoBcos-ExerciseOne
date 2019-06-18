@@ -27,4 +27,10 @@ build比较成功，且没有warning或error
 build虽然成功，但是出现了error和warning
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/gradlew_build_virtual.png)
 
-## 
+## 合约编译
+**官方文档**
+># Spring Boot Starter
+>Solidity合约文件转Java合约文件测试
+>提供SolidityFunctionWrapperGeneratorTest测试类测试Solidity合约文件转Java合约文件。
+>........<br/>
+>该测试案例将src/test/resources/contract目录下的所有Solidity合约文件(默认提供HelloWorld合约)均转为相应的abi和bin文件，保存在src/test/resources/solidity目录下。然后将abi文件和对应的bin文件组合转换为Java合约文件，保存在src/test/java/org/fisco/bcos/temp目录下。SDK将利用Java合约文件进行合约部署与调用。
