@@ -71,4 +71,14 @@ build虽然成功，但是出现了error和warning
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/deploy_1.png)
 2. 通过/getTotal请求某地址上的积分发放
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/gettotal.png)
+可以发现合约的部署和数据的请求都是正常的。
 
+### 问题的解决
+最后将问题的目光锁定在Web3js和Credentials两者的实例上
+1. 为控制器加入一个构造函数
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/problem_1.png)
+2. 测试类创建控制器实例时将测试类自己的两个Web3js和Credentials实例传入
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/problem_2.png)
+
+终于，测试用例运行成功
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/result.png)
