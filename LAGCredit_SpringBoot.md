@@ -1,6 +1,6 @@
 # LAGCredit合约的编译、部署、接口测试
 
-## 目标：通过SpringBoot完成对LAGCredit合约的编译、部署与SDK开发
+## 目标：通过SpringBoot完成对LAGCredit合约的编译、部署与接口测试
 
 **官方文档**
 
