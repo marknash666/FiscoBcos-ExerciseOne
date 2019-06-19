@@ -61,9 +61,9 @@ build虽然成功，但是出现了error和warning
 1. 在gradle依赖中引入org.springframework.boot:spring-boot-starter-web
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/dependencies.png)
 2. 编写基础控制类代码
-![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_#.png)
-3. 在controller类前声明@RestController **Spring框架4版本之后出来的注解,之前版本返回json数据需要@ResponseBody配合@Controller**
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_1.png)
+3. 在controller类前声明@RestController **Spring框架4版本之后出来的注解,之前版本返回json数据需要@ResponseBody配合@Controller**
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_%23.png)
 4. 通过@RequestMapping为web接口配置url映射关系
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_2.png)
 #### 效果展示
