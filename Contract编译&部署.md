@@ -53,6 +53,7 @@ build虽然成功，但是出现了error和warning
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/contract_3.png)
 1. load失败的报错
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/transaction.png)
+
 我尝试不通过控制器来直接测试这一部分代码，发现程序一切正常。
 
 ### json接口开发
@@ -71,6 +72,7 @@ build虽然成功，但是出现了error和warning
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/deploy_1.png)
 2. 通过/getTotal请求某地址上的积分发放
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/gettotal.png)
+
 可以发现合约的部署和数据的请求都是正常的。
 
 ### 问题的解决
