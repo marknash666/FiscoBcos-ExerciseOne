@@ -64,7 +64,7 @@ build虽然成功，但是出现了error和warning
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_1.png)
 3. 在controller类前声明@RestController **Spring框架4版本之后出来的注解,之前版本返回json数据需要@ResponseBody配合@Controller**
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_%23.png)
-4. 通过@RequestMapping为web接口配置url映射关系
+4. 通过@RequestMapping为(deploy_web和getTotal)接口配置url映射关系
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_2.png)
 
 #### 效果展示
