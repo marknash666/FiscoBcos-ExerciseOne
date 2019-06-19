@@ -46,10 +46,9 @@ build虽然成功，但是出现了error和warning
 
 ## LAGCreditController开发与功能验证
 根据老师提供的实验pdf开始LAGCreditController类的编写
-
 ### 遇到的问题
 **问题描述：**
-为了验证Controller的功能正确性，我便写了LAGCreditTest JUint测试类来对控制器的功能进行测试。其中，发现在Test类中deploy，load等函数都是无法正常执行的。
+为了验证Controller的功能正确性，我写了LAGCreditTest JUint测试类来对控制器的功能进行测试。其中，发现在Test类中deploy，load等函数都是无法正常执行的。
 1. deploy失败的报错
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/contract_3.png)
 1. load失败的报错
@@ -66,6 +65,10 @@ build虽然成功，但是出现了error和warning
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_%23.png)
 4. 通过@RequestMapping为web接口配置url映射关系
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_2.png)
-#### 效果展示
 
+#### 效果展示
+1. 通过/deploy请求部署，后端会返回合约部署的地址
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/deploy_1.png)
+2. 通过/getTotal请求某地址上的积分发放
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/gettotal.png)
 
