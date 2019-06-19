@@ -48,4 +48,24 @@ build虽然成功，但是出现了error和warning
 根据老师提供的实验pdf开始LAGCreditController类的编写
 
 ### 遇到的问题
+**问题描述：**
 为了验证Controller的功能正确性，我便写了LAGCreditTest JUint测试类来对控制器的功能进行测试。其中，发现在Test类中deploy，load等函数都是无法正常执行的。
+1. deploy失败的报错
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/contract_3.png)
+1. load失败的报错
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/transaction.png)
+我尝试不通过控制器来直接测试这一部分代码，发现程序一切正常。
+
+### json接口开发
+#### 注解添加
+1. 在gradle依赖中引入org.springframework.boot:spring-boot-starter-web
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/dependencies.png)
+2. 编写基础控制类代码
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_#.png)
+3. 在controller类前声明@RestController **Spring框架4版本之后出来的注解,之前版本返回json数据需要@ResponseBody配合@Controller**
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_1.png)
+4. 通过@RequestMapping为web接口配置url映射关系
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/controller_2.png)
+#### 效果展示
+
+
