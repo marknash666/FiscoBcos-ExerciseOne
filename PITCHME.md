@@ -1,6 +1,7 @@
 # LAGCredit合约阅读分析与功能添加
-
++++
 ## 代码分析
++++
 1. 数据、事件定义
 ```solidity
 string name = "LAGC";//默认积分名称
@@ -9,7 +10,7 @@ uint256 totalSupply;//积分总量
 mapping (address => uint256) private balances;//记录账号持有积分数目的结构体(key为address，value为uint256)
 event transferEvent(address from, address to,uint256 value);//定义了一个名为transferEvent的事件，该事件会被Web3.js监听并作出响应
 ```
-
++++
 2. 构造函数
 ```solidity
 constructor (uint256 initialSupply, string creditName,string creditSymbol) public{
@@ -19,14 +20,14 @@ constructor (uint256 initialSupply, string creditName,string creditSymbol) publi
         symbol=creditSymbol;//初始化积分代号        
     }
 ```
-
++++
 3. getTotalSupply
 ```solidity
 function getTotalSupply() view public returns (uint256){
         return totalSupply;//用于查看当前积分总量的函数
     }
 ```
-
++++
 4. _transfer(internal的传递执行体)
 ```solidity
 function _transfer(address _from,address _to,uint _value) internal{        
@@ -43,24 +44,26 @@ function _transfer(address _from,address _to,uint _value) internal{
         assert(balances[_from]+balances[_to] == previousBalances);//假如传递执行后两个帐户的积分总额与此前不一则出现重大错误，回滚        
     }
 ```
-
++++
 5. transfer(封装了内部执行的积分传递函数)
 ```solidity
 function transfer(address _to, uint256 _value) public {
         _transfer(msg.sender,_to,_value);//将调用者的地址并与其余两个参数传给实际执行体
     }
 ```
-
++++
 6. balanceOf
 ```solidity
  function balanceOf(address _owner) view public returns(uint256){
         return balances[_owner];//查看传入地址所拥有的积分数
     }
 ```
-
++++
 ## 功能添加
++++
 1. 积分总量增加</br>
 **构思：积分总量的添加只能由合约持有者进行操作，因此考虑增加修饰函数和一个储存合约持有者地址的数据，在执行添加操作前判断是否为合约持有者**</br>
++++
 **具体实现：**</br>
 
 以下是新增加的代码
@@ -81,6 +84,7 @@ function addSupply(uint256 amountofSupply) public onlyOwner(msg.sender) {
         return contract_holder;//增加一个查看合约持有者地址的函数
     }
 ```
++++
 以下是对构造函数的修改
 ```solidity
 constructor (uint256 initialSupply, string creditName,string creditSymbol) public{
@@ -91,9 +95,10 @@ constructor (uint256 initialSupply, string creditName,string creditSymbol) publi
         contract_holder=msg.sender;//构造函数中添加合约持有者地址的初始化
     }
 ```
-
++++
 2. 允许商家进行积分发放活动</br>
 **构思：积分优惠活动指的是商家可以在活动期间为前来消费的消费者发送更多的积分，优惠的设置只能被合约持有者操控**</br>
++++
 **具体实现：**</br>
 以下是新增加的代码
 ```solidity
@@ -107,6 +112,7 @@ function setSale(uint256 new_sale) public onlyOwner(msg.sender){
         return sale;//允许任何人查看当前优惠
     }
 ```
++++
 以下是对_transfer函数的修改
 ```solidity
 function _transfer(address _from,address _to,uint _value) internal{
