@@ -3,7 +3,7 @@
 ## 代码分析
 +++
 1. 数据、事件定义
-```solidity
+```
 string name = "LAGC";//默认积分名称
 string symbol = "LAG";//默认积分代号
 uint256 totalSupply;//积分总量
@@ -12,7 +12,7 @@ event transferEvent(address from, address to,uint256 value);//定义了一个名
 ```
 +++
 2. 构造函数
-```solidity
+```
 constructor (uint256 initialSupply, string creditName,string creditSymbol) public{
         totalSupply =initialSupply;//初始化积分总量
         balances[msg.sender]=totalSupply;//初始化合约持有者的积分数
@@ -22,7 +22,7 @@ constructor (uint256 initialSupply, string creditName,string creditSymbol) publi
 ```
 +++
 3. getTotalSupply
-```solidity
+```
 function getTotalSupply() view public returns (uint256){
         return totalSupply;//用于查看当前积分总量的函数
     }
