@@ -29,7 +29,7 @@ function getTotalSupply() view public returns (uint256){
 ```
 +++
 4. _transfer(internal的传递执行体)
-```solidity
+```
 function _transfer(address _from,address _to,uint _value) internal{        
         require(!(_to == 0x0));//防止积分被送进焚烧地址
         require(balances[_from]>=_value);//确保执行者拥有的积分大于传递的积分数值
@@ -46,14 +46,14 @@ function _transfer(address _from,address _to,uint _value) internal{
 ```
 +++
 5. transfer(封装了内部执行的积分传递函数)
-```solidity
+```
 function transfer(address _to, uint256 _value) public {
         _transfer(msg.sender,_to,_value);//将调用者的地址并与其余两个参数传给实际执行体
     }
 ```
 +++
 6. balanceOf
-```solidity
+```
  function balanceOf(address _owner) view public returns(uint256){
         return balances[_owner];//查看传入地址所拥有的积分数
     }
@@ -67,7 +67,7 @@ function transfer(address _to, uint256 _value) public {
 **具体实现：**</br>
 
 以下是新增加的代码
-```solidity
+```
 address contract_holder;//储存合约持有者的地址
 
 modifier onlyOwner(address){
@@ -86,7 +86,7 @@ function addSupply(uint256 amountofSupply) public onlyOwner(msg.sender) {
 ```
 +++
 以下是对构造函数的修改
-```solidity
+```
 constructor (uint256 initialSupply, string creditName,string creditSymbol) public{
         totalSupply =initialSupply;
         balances[msg.sender]=totalSupply;
@@ -101,7 +101,7 @@ constructor (uint256 initialSupply, string creditName,string creditSymbol) publi
 +++
 **具体实现：**</br>
 以下是新增加的代码
-```solidity
+```
 uint256 sale = 1;//储存优惠倍数，默认为1
 
 function setSale(uint256 new_sale) public onlyOwner(msg.sender){
@@ -114,7 +114,7 @@ function setSale(uint256 new_sale) public onlyOwner(msg.sender){
 ```
 +++
 以下是对_transfer函数的修改
-```solidity
+```
 function _transfer(address _from,address _to,uint _value) internal{
         
         require(!(_to == 0x0),"The address shouldn't be the burning address!");
