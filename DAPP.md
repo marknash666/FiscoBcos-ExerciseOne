@@ -15,16 +15,52 @@
 >持续交付（Continuous delivery）指的是，频繁地将软件的新版本，交付给质量团队或者用户，以供评审。如果评审通过，代码就进入生产阶段<br/>
 >持续部署（continuous deployment）是持续交付的下一步，指的是代码通过评审以后，自动部署到生产环境
 
-实际上，Continuous Integration服务就是为我们提供了一个独立的运行环境，这个环境可以根据配置文件按照规范化的流程运行指令。这些指令在虚拟机中的运行情况会通过文本的形式反馈给我们，无论是失败或成功。一般来说，这些服务会在项目发生更改（如push|merge）时自动对项目进行构建，运行测试，反馈运行结果。<br/>结果最直观的形式便是一个Badge，如右图所示![](https://www.travis-ci.com/marknash666/springboot.svg?branch=master)这是我们后端的Travis CI徽章
+实际上，Continuous Integration服务就是为我们提供了一个独立的运行环境，这个环境可以根据配置文件按照规范化的流程运行指令。这些指令在虚拟机中的运行情况会通过文本的形式反馈给我们，无论是失败或成功。一般来说，这些服务会在项目发生更改（如push|merge）时自动对项目进行构建，运行测试，反馈运行结果。<br/>最直观的反馈形式便是一个Badge，如右图所示![](https://www.travis-ci.com/marknash666/springboot.svg?branch=master)这是我们后端的Travis CI徽章
 
 ### Travis CI
 
 **官方文档**
 
-># Spring Boot Starter
->### 运行
->编译并运行测试案例，在项目根目录下运行：
->```
->$ ./gradlew build
->```
->当所有测试案例运行成功，则代表区块链运行正常，该项目通过SDK连接区块链正常。开发者可以基于该项目进行具体应用开发。
+>作为一个持续集成平台，Travis CI通过自动构建和测试代码更改来支持您的开发过程，并提供有关变更成功的即时反馈。 Travis CI还可以通过管理部署和通知来自动化开发过程的其他部分。
+以下是本次项目SpringBootStarter的.travis.yml配置文件
+```script
+language: java
+jdk:
+  - openjdk8
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+   
+script: |
+  curl -LO https://raw.githubusercontent.com/FISCO-BCOS/FISCO-BCOS/master/tools/build_chain.sh && chmod u+x build_chain.sh
+  bash <(curl -s https://raw.githubusercontent.com/FISCO-BCOS/FISCO-BCOS/master/tools/ci/download_bin.sh) -b master
+  echo "127.0.0.1:4 agency1 1,2,3" > ipconf
+  ./build_chain.sh -e bin/fisco-bcos -f ipconf -p 30300,20200,8545
+  ./nodes/127.0.0.1/start_all.sh
+  cp nodes/127.0.0.1/sdk/* src/main/resources/
+  ./gradlew verGJF
+  ./gradlew build
+after_sucess:
+- npm run coveralls
+```
+#### 配置情况简述
+1. 声明项目词采用的语言
+```script
+language: java
+jdk:
+  - openjdk8
+```
+2. 声明项目词采用的语言
+```script
+language: java
+jdk:
+  - openjdk8
+```
+
+
+
