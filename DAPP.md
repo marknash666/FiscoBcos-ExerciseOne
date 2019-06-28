@@ -23,7 +23,7 @@
 
 >作为一个持续集成平台，Travis CI通过自动构建和测试代码更改来支持您的开发过程，并提供有关变更成功的即时反馈。 Travis CI还可以通过管理部署和通知来自动化开发过程的其他部分。
 以下是本次项目SpringBootStarter的.travis.yml配置文件
-```xml
+```php
 language: java
 jdk:
   - openjdk8
@@ -50,7 +50,7 @@ after_sucess:
 ```
 #### 配置情况简述
 1. 声明项目词采用的语言
-```bash
+```php
 language: java
 jdk:
   - openjdk8
