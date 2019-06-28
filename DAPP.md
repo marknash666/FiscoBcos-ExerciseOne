@@ -14,6 +14,9 @@
 >与持续集成相关的，还有两个概念，分别是持续交付和持续部署:<br/>
 >持续交付（Continuous delivery）指的是，频繁地将软件的新版本，交付给质量团队或者用户，以供评审。如果评审通过，代码就进入生产阶段<br/>
 >持续部署（continuous deployment）是持续交付的下一步，指的是代码通过评审以后，自动部署到生产环境
+
+实际上，Continuous Integration服务就是为我们提供了一个独立的运行环境，这个环境可以根据配置文件按照规范化的流程运行指令。这些指令在虚拟机中的运行情况会通过文本的形式反馈给我们，无论是失败或成功。一般来说，这些服务会在项目发生更改（如push|merge）时自动对项目进行构建，运行测试，反馈运行结果。结果最直观的形式便是一个Badge，如右图所示![](https://www.travis-ci.com/marknash666/springboot.svg?branch=master)这是我们后端的Travis CI徽章
+
 ### Travis CI
 
 **官方文档**
