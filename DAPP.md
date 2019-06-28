@@ -51,18 +51,36 @@ after_sucess:
 - npm run coveralls
 ```
 #### 配置情况简述
-1. 声明项目词采用的语言
+1. 声明项目词采用的语言java
 ```php
 language: java
 jdk:
   - openjdk8
 ```
-2. 声明项目词采用的语言
+2. Travis提供了这些语句来设置Gradle项目构建所采用的缓存，其依赖性缓存的特性需要避免在每次构建之后上载缓存
 ```php
-language: java
-jdk:
-  - openjdk8
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
 ```
+3. 具体的配置脚本：后端的一些测试需要联盟链节点的运行，因此需要在项目构建之前通过build_chain脚本搭建一条联盟链并将节点sdk拷贝至项目资源目录下供其使用。而最后的两个gradlew操作分别是verifying Google Java Format和最终的gradle项目构建操作。前者负责验证文件是否符合Google Java的特定格式要求（非常严格）而后者则会执行一系列的Task，其中就括执行所有测试类（这里就是自动化测试的具体执行位置）
+```
+script: |
+  curl -LO https://raw.githubusercontent.com/FISCO-BCOS/FISCO-BCOS/master/tools/build_chain.sh && chmod u+x build_chain.sh
+  bash <(curl -s https://raw.githubusercontent.com/FISCO-BCOS/FISCO-BCOS/master/tools/ci/download_bin.sh) -b master
+  echo "127.0.0.1:4 agency1 1,2,3" > ipconf
+  ./build_chain.sh -e bin/fisco-bcos -f ipconf -p 30300,20200,8545
+  ./nodes/127.0.0.1/start_all.sh
+  cp nodes/127.0.0.1/sdk/* src/main/resources/
+  ./gradlew verGJF
+  ./gradlew build
+```
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-vehicle/vehicle_travis1.png)
 
 
 
