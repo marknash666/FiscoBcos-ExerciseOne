@@ -68,7 +68,7 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 ```
-3. 具体的配置脚本：后端的一些测试需要联盟链节点的运行，因此需要在项目构建之前通过build_chain脚本搭建一条联盟链并将节点sdk拷贝至项目资源目录下供其使用。而最后的两个gradlew操作分别是verifying Google Java Format和最终的gradle项目构建操作。前者负责验证文件是否符合Google Java的特定格式要求（非常严格）而后者则会执行一系列的Task，其中就括执行所有测试类（这里就是自动化测试的具体执行位置）
+3. 具体的配置脚本：后端的一些测试需要联盟链节点的运行，因此需要在项目构建之前通过**build_chain**脚本搭建一条联盟链并将节点sdk拷贝至项目资源目录下供其使用。而最后的两个gradlew操作分别是**verifying Google Java Format**和最终的gradle项目构建操作。前者负责验证文件是否符合谷歌的Java代码风格要求（非常严格）而后者则会执行一系列的Task，其中就括执行所有测试类（这里就是自动化测试的具体执行位置）
 ```
 script: |
   curl -LO https://raw.githubusercontent.com/FISCO-BCOS/FISCO-BCOS/master/tools/build_chain.sh && chmod u+x build_chain.sh
