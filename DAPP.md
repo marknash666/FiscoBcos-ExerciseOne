@@ -82,5 +82,79 @@ script: |
 ```
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-vehicle/vehicle_travis1.png)
 
+## Circle CI
 
+**官方文档**
+
+Ciicle CI的项目自动部署速度貌似更快（因为不用排队），不过其支持的语言和功能（如矩阵部署，即在多种环境下对项目进行部署测试，某个版本出现的build failed也不会视为整体部署失败）相对来说会少一些
+以下是本次项目SpringBootStarter的.circle/config.yml配置文件
+```php
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/openjdk:8-jdk
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/postgres:9.4
+
+    working_directory: ~/repo
+
+    environment:
+      # Customize the JVM maximum heap limit
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "build.gradle" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: gradle dependencies
+
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+          
+      - run:     
+           command: |
+             curl -LO https://raw.githubusercontent.com/FISCO-BCOS/FISCO-BCOS/master/tools/build_chain.sh && chmod u+x build_chain.sh
+             bash <(curl -s https://raw.githubusercontent.com/FISCO-BCOS/FISCO-BCOS/master/tools/ci/download_bin.sh) -b master
+             echo "127.0.0.1:4 agency1 1,2,3" > ipconf
+             ./build_chain.sh -e bin/fisco-bcos -f ipconf -p 30300,20200,8545
+             ./nodes/127.0.0.1/start_all.sh
+             cp nodes/127.0.0.1/sdk/* src/main/resources/
+    
+      # run tests!
+- run: gradle test
+```
+### 配置情况简述
+整体配置架构基本上采用了Circle CI提供的Java项目的配置框架，核心在于steps中添加了部署我们后端项目运行所需要的联盟链搭建配置。
+```
+steps:      
+      - run:     
+           command: |
+             curl -LO https://raw.githubusercontent.com/FISCO-BCOS/FISCO-BCOS/master/tools/build_chain.sh && chmod u+x build_chain.sh
+             bash <(curl -s https://raw.githubusercontent.com/FISCO-BCOS/FISCO-BCOS/master/tools/ci/download_bin.sh) -b master
+             echo "127.0.0.1:4 agency1 1,2,3" > ipconf
+             ./build_chain.sh -e bin/fisco-bcos -f ipconf -p 30300,20200,8545
+             ./nodes/127.0.0.1/start_all.sh
+             cp nodes/127.0.0.1/sdk/* src/main/resources/
+             
+      - run: gradle test
+```
+
+
+## Codecov
+
+**官方文档**
 
