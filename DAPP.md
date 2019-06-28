@@ -17,7 +17,7 @@
 
 实际上，Continuous Integration服务就是为我们提供了一个独立的运行环境，这个环境可以根据配置文件按照规范化的流程运行指令。这些指令在虚拟机中的运行情况会通过文本的形式反馈给我们，无论是失败或成功。一般来说，这些服务会在项目发生更改（如push|merge）时自动对项目进行构建，运行测试，反馈运行结果。<br/>最直观的反馈形式便是一个Badge，如右图所示![](https://www.travis-ci.com/marknash666/springboot.svg?branch=master)这是我们后端的Travis CI徽章
 
-### Travis CI
+## Travis CI
 
 **官方文档**
 
@@ -50,7 +50,7 @@ script: |
 after_sucess:
 - npm run coveralls
 ```
-#### 配置情况简述
+### 配置情况简述
 1. 声明项目词采用的语言java
 ```php
 language: java
