@@ -31,6 +31,7 @@ jdk:
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  
 cache:
   directories:
     - $HOME/.gradle/caches/
@@ -45,6 +46,7 @@ script: |
   cp nodes/127.0.0.1/sdk/* src/main/resources/
   ./gradlew verGJF
   ./gradlew build
+  
 after_sucess:
 - npm run coveralls
 ```
