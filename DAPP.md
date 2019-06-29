@@ -188,5 +188,5 @@ jacocoTestReport {
 ## 参考文档
 [TravisCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
 [CircleCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
-[codevcov官方文档](https://docs.codecov.io/docs)<br/>
-[codevcov Gradle项目示例](https://github.com/codecov/example-gradle)
+[Codevcov官方文档](https://docs.codecov.io/docs)<br/>
+[Codevcov Gradle项目示例](https://github.com/codecov/example-gradle)
