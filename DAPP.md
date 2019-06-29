@@ -86,7 +86,7 @@ script: |
 
 **介绍**
 
-Ciicle CI的项目自动部署速度貌似更快（因为不用排队），不过其支持的语言和功能（如矩阵部署，即在多种环境下对项目进行部署测试，某个版本出现的build failed也不会视为整体部署失败）相对来说会少一些
+Ciicle CI的项目自动部署速度貌似更快（因为不用排队），不过其支持的语言和功能（如矩阵部署，即在多种环境下对项目进行部署测试，某个版本出现的build failed也不会视为整体部署失败）相对来说会少一些<br/>
 以下是本次项目SpringBootStarter的.circle/config.yml配置文件
 ```php
 version: 2
@@ -184,7 +184,7 @@ jacocoTestReport {
              bash <(curl -s https://codecov.io/bash)
 ```
 
-完成后，每一次CI进行自动构建和测试的时候就会更新Codevoc的覆盖率状态了
+完成后，每一次CI进行自动构建和测试的时候就会更新Codevoc的覆盖率状态
 ## 参考文档
 [TravisCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
 [CircleCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
