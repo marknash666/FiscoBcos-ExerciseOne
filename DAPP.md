@@ -139,7 +139,7 @@ jobs:
 ```
 ### 配置情况简述
 整体配置架构基本上采用了Circle CI提供的Java项目的配置框架，核心在于steps中添加了部署我们后端项目运行所需要的联盟链搭建配置。
-```
+```php
 steps:      
       - run:     
            command: |
@@ -161,7 +161,7 @@ steps:
 
 ### 配置情况简述
 1. 在项目配置文件中加入jacoco插件和报告生成代码
-```java
+```gradle
 apply plugin: 'jacoco'
 
 jacocoTestReport {
@@ -177,7 +177,7 @@ jacocoTestReport {
 }
 ```
 2. 在CircleCI的config.yml中加入生成测试报告和上传报告至Codecov的指令
-```
+```php
 - run:     
            command: |
              if [ -e ./gradlew ]; then ./gradlew jacocoTestReport;else gradle jacocoTestReport;fi
@@ -186,7 +186,7 @@ jacocoTestReport {
 
 完成后，每一次CI进行自动构建和测试的时候就会更新Codevoc的覆盖率状态了
 ## 参考文档
-![TravisCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
-![CircleCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
-![codevcov官方文档](https://docs.codecov.io/docs)<br/>
-![codevcov Gradle项目示例](https://github.com/codecov/example-gradle)
+[TravisCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
+[CircleCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
+[codevcov官方文档](https://docs.codecov.io/docs)<br/>
+[codevcov Gradle项目示例](https://github.com/codecov/example-gradle)
