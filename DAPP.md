@@ -156,5 +156,37 @@ steps:
 
 ## Codecov
 
-**官方文档**
+**介绍**
+>Codecov是一个开源的测试结果展示平台，将测试结果可视化。CI负责执行测试，经过配置之后测试结果会上传到Codecov，而Codecov则会分析测试结果并且以表格的形式展示出来。其最简单的用法就是衡量测试代码覆盖度，依赖于travis，Codecov非常简单就能上手。
 
+### 配置情况简述
+1. 在项目配置文件中加入jacoco插件和报告生成代码
+```java
+apply plugin: 'jacoco'
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		csv.enabled false
+		html.enabled false
+
+		xml.destination file("${buildDir}/reports/jacoco/jacocoReport/jacocoXml.xml")
+		csv.destination file("${buildDir}/reports/jacoco/jacocoReport/jacocoCsv.csv")
+		html.destination file("${buildDir}/reports/jacoco/jacocoReport/jacocoHtml")
+	}
+}
+```
+2. 在CircleCI的config.yml中加入生成测试报告和上传报告至Codecov的指令
+```
+- run:     
+           command: |
+             if [ -e ./gradlew ]; then ./gradlew jacocoTestReport;else gradle jacocoTestReport;fi
+             bash <(curl -s https://codecov.io/bash)
+```
+
+完成后，每一次CI进行自动构建和测试的时候就会更新Codevoc的覆盖率状态了
+## 参考文档
+![TravisCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
+![CircleCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
+![codevcov官方文档](https://docs.codecov.io/docs)<br/>
+![codevcov Gradle项目示例](https://github.com/codecov/example-gradle)
