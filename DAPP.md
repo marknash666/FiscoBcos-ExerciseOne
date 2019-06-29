@@ -84,7 +84,7 @@ script: |
 
 ## Circle CI
 
-**官方文档**
+**介绍**
 
 Ciicle CI的项目自动部署速度貌似更快（因为不用排队），不过其支持的语言和功能（如矩阵部署，即在多种环境下对项目进行部署测试，某个版本出现的build failed也不会视为整体部署失败）相对来说会少一些
 以下是本次项目SpringBootStarter的.circle/config.yml配置文件
