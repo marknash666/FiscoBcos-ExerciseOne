@@ -57,7 +57,7 @@ language: java
 jdk:
   - openjdk8
 ```
-2. Travis提供了这些语句来设置Gradle项目构建所采用的缓存，其依赖性缓存的特性需要避免在每次构建之后上载缓存
+2. Travis提供了这些语句来设置Gradle项目构建所采用的缓存，Gradle依赖性缓存的特性需要避免在每次构建之后上载缓存
 ```php
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
