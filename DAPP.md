@@ -185,8 +185,19 @@ jacocoTestReport {
 ```
 
 完成后，每一次CI进行自动构建和测试的时候就会更新Codevoc的覆盖率状态
+
+## Codefactor
+
+**介绍**
+>了解整个项目的代码质量，最近的提交和最有问题的文件。 
+>CodeFactor将尝试首先根据问题代码大小，文件更改频率和文件大小显示最关键的问题，以便您可以开始只修复重要的问题。
+>直接从代码文件或项目问题页面创建和跟踪问题或评论。
+
+这个代码检测服务的开启非常简单，只需要在官网登陆Github账号之后将需要进行检测的仓库添加到服务中即可。效果如下：
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-vehicle/codefactor.png)
 ## 参考文档
 [TravisCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
 [CircleCI官方文档](https://docs.travis-ci.com/user/languages/java/)<br/>
 [Codevcov官方文档](https://docs.codecov.io/docs)<br/>
-[Codevcov Gradle项目示例](https://github.com/codecov/example-gradle)
+[Codevcov Gradle项目示例](https://github.com/codecov/example-gradle)<br/>
+[Codevfactor官方文档](https://www.codefactor.io/features)
