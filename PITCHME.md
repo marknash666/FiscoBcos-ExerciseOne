@@ -1,137 +1,43 @@
-# LAGCredit合约阅读分析与功能添加
+# LAGCredit在SpringBoot环境下的接口开发
 +++
-## 代码分析
+### JSON依赖添加
+```
+compile 'net.sf.json-lib:json-lib:2.4:jdk15'
+```
+加入依赖后IDEA会自动下载包括FastJSON在内的jar包。在实际使用时，需要注意的是fastjson和net.sf.json的JSONObject的String转换方法有区别（前者为toJSONString,后者则是简单的toString）。
 +++
-1. 数据、事件定义
+## 接口开发
+**以下接口返回的信息只作展示用**
+### 合约部署
+用户可以通过`/deploy`路径来部署合约，部署成功则会返回合约的地址
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/interface_dev2.png)
++++
+## 接口开发
+**以下接口返回的信息只作展示用**
+### 积分传输
+积分的传输需要用户在`/transfer`路径下提供三个参数（对应transfer函数所需的参数），积分传递成功的话则会返回积分送出者和接受者各自的积分信息
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/interface_dev3.png)
+`此处应为post，为了易于展示先以GET方式进行数据传递`
++++
+## 接口开发
+**以下接口返回的信息只作展示用**
+### 当前积分查看
+通过`/getCurrentSupply`,用户可以获得自己账户下的积分信息
 ```
-string name = "LAGC";//默认积分名称
-string symbol = "LAG";//默认积分代号
-uint256 totalSupply;//积分总量
-//记录账号持有积分数目的结构体(key为address，value为uint256)
-mapping (address => uint256) private balances;
-//定义了一个名为transferEvent的事件，该事件会被Web3.js监听并作出响应
-event transferEvent(address from, address to,uint256 value);
-```
+合约部署者地址：0x4f42a3c513a9411954c193a50b1c4ab5393cb20b
+合约部署者私钥(hex)：0x9099ffe712c486fd0f255844de197b8c763f38ca542ba3038974dc04b3ae48ec
 
-2. 构造函数
-```
-constructor (uint256 initialSupply, string creditName,string creditSymbol) public{
-        totalSupply =initialSupply;//初始化积分总量
-        balances[msg.sender]=totalSupply;//初始化合约持有者的积分数
-        name=creditName;//初始化积分名称
-        symbol=creditSymbol;//初始化积分代号        
-    }
+用户地址：0x9c97ba257d5188c78adf6c5e1deab3a33da140ad
+用户私钥(hex)：0x1f8878ee6cbfe6fed572994cba03e1bf64c927efd92053df228c71389aadc562
 ```
 +++
-3. getTotalSupply
-```
-function getTotalSupply() view public returns (uint256){
-        return totalSupply;//用于查看当前积分总量的函数
-    }
-```
-+++
-4. _transfer(internal的传递执行体)
-```
-function _transfer(address _from,address _to,uint _value) internal{        
-        require(!(_to == 0x0));//防止积分被送进焚烧地址
-        require(balances[_from]>=_value);//确保执行者拥有的积分大于传递的积分数值
-        require(balances[_to]+_value > balances[_to]);//确保传递的积分数值大于0
-        
-        uint previousBalances = balances[_from]+ balances[_to];//记录传递执行前两个账户的积分总额
-        
-        balances[_from] -= _value;//积分送出者积分减少
-        balances[_to] += _value;//积分获得者积分增加
-        
-        emit transferEvent(_from,_to,_value);//激活积分传递事件
-        assert(balances[_from]+balances[_to] == previousBalances);//假如传递执行后两个帐户的积分总额与此前不一则出现重大错误，回滚        
-    }
-```
-+++
-5. transfer(封装了内部执行的积分传递函数)
-```
-function transfer(address _to, uint256 _value) public {
-        _transfer(msg.sender,_to,_value);//将调用者的地址并与其余两个参数传给实际执行体
-    }
-```
-+++
-6. balanceOf
-```
- function balanceOf(address _owner) view public returns(uint256){
-        return balances[_owner];//查看传入地址所拥有的积分数
-    }
-```
-+++
-## 功能添加
-+++
-1. 积分总量增加</br>
-**构思：积分总量的添加只能由合约持有者进行操作，因此考虑增加修饰函数和一个储存合约持有者地址的数据，在执行添加操作前判断是否为合约持有者**</br>
-+++
-**具体实现：**</br>
+## 接口开发
+**以下接口返回的信息只作展示用**
+### 当前积分查看
 
-以下是新增加的代码
-```
-address contract_holder;//储存合约持有者的地址
+1. 这是合约部署者调用的getCurrentSupply
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/interface_dev4.png)
 
-modifier onlyOwner(address){
-        require(msg.sender==contract_holder);//只能合约持有者进行操作的修饰函数
-        _;
-    }
-
-function addSupply(uint256 amountofSupply) public onlyOwner(msg.sender) {
-        totalSupply= amountofSupply+totalSupply;//修改积分发放总量
-        balances[msg.sender] += amountofSupply;//增加合约持有者的积分
-    }
-
- function getContractOwner() view public returns(address){
-        return contract_holder;//增加一个查看合约持有者地址的函数
-    }
-```
-+++
-以下是对构造函数的修改
-```
-constructor (uint256 initialSupply, string creditName,string creditSymbol) public{
-        totalSupply =initialSupply;
-        balances[msg.sender]=totalSupply;
-        name=creditName;
-        symbol=creditSymbol;
-        contract_holder=msg.sender;//构造函数中添加合约持有者地址的初始化
-    }
-```
-+++
-2. 允许商家进行积分发放活动</br>
-**构思：积分优惠活动指的是商家可以在活动期间为前来消费的消费者发送更多的积分，优惠的设置只能被合约持有者操控**</br>
-+++
-**具体实现：**</br>
-以下是新增加的代码
-```
-uint256 sale = 1;//储存优惠倍数，默认为1
-
-function setSale(uint256 new_sale) public onlyOwner(msg.sender){
-        sale=new_sale;//设置新的优惠倍数，只能由合约持有者操控
-    }
-    
-    function getSale() view public returns(uint256) {
-        return sale;//允许任何人查看当前优惠
-    }
-```
-+++
-以下是对_transfer函数的修改
-```
-function _transfer(address _from,address _to,uint _value) internal{
-        
-        require(!(_to == 0x0),"The address shouldn't be the burning address!");
-        require(balances[_from]>=_value,"No enough supply.");
-        require(balances[_to]+_value > balances[_to],"Expected a positive value of supply.");
-        
-        uint previousBalances = balances[_from]+ balances[_to];
-        if(msg.sender==contract_holder)//增加判断
-        _value=_value*sale;//当传出积分者为合约持有者的时候应用优惠政策
-        
-        balances[_from] -= _value;
-        balances[_to] += _value;
-        
-        emit transferEvent(_from,_to,_value);
-        assert(balances[_from]+balances[_to] == previousBalances);
-        
-    }
-```
+2. 修改SpringBoot的user key为刚才接受积分的用户的私钥并启动，调用本接口则会得到
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-springboot/interface_dev5.png)
+`本功能的实现需要在合约中添加一个返回当前账号积分总数的函数`
