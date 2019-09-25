@@ -11,8 +11,6 @@
 PS:子类会共享父类的非private静态数据成员
 
 ## WorldControl & WorldTwo
-
-### WorldControl增加Awake方法
 - WorldControl在Awake中调用Element.Init完成资源初始化
 - WorldTwo添加base.Awake()，继承父类通用行为
 
