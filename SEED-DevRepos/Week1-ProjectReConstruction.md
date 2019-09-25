@@ -1,8 +1,7 @@
 # G组项目重构记录-WeekOne
 
-## Element
-
-### 命名 
+## Element & 子类
+### 命名优化
 - 修改变量名ifintest为isAffected；修改函数名beforetest为requestAffected;<br/>修改函数名intest为Affected
 - 删除无用的时间变量testtime与函数afertest
 - 删除Update中无用的时间判断逻辑
@@ -19,9 +18,14 @@
 
 ## WindMill
 - 增加bool接口供外界查询风车是否处于旋转状态
+- 变量名优化，布尔值canrotate改为isRotate
 
 ## SkyWheel
 - 删除冗余的布尔值millisrotate，采用WindMill提供的接口进行逻辑判断
 - 对象的查找放在requestAffection中执行，减少游戏场景初始化的开销
 - 对象的存储与否进行一定的取舍，逻辑优化
 
+## PeopleControll & 子类
+###命名优化
+- 枚举类型enter改为Controlled;枚举类型tested改为Affected
+- 大量函数名修改
