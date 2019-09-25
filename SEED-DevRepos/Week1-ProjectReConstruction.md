@@ -8,7 +8,7 @@
 
 ### 资源获取
 - 增加静态方法Init接口供场景控制脚本调用，静态加载一个Element子类可用的Sphere资源，增强复用性并减少开销
-- $\color{#4285f4}{（子类会共享父类的非private静态数据成员）}$
+PS:子类会共享父类的非private静态数据成员
 
 ## WorldControl & WorldTwo
 
@@ -26,6 +26,6 @@
 - 对象的存储与否进行一定的取舍，逻辑优化
 
 ## PeopleControll & 子类
-###命名优化
+### 命名优化
 - 枚举类型enter改为Controlled;枚举类型tested改为Affected
 - 大量函数名修改
