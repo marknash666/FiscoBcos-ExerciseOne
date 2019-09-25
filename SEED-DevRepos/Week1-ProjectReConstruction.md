@@ -27,3 +27,10 @@ PS:子类会共享父类的非private静态数据成员
 ### 命名优化
 - 枚举类型enter改为Controlled;枚举类型tested改为Affected
 - 大量函数名修改
+
+## 脚本寻找编辑器
+- 为了解决脚本移动的时候出现的missing情况，我制作了一个能够遍历GameObject并查找missing or Specific Scrpits的编辑器
+- 功能目前有两种：
+    - 根据需要获取一个拥有目标脚本的GameObject的List
+    - 为这个List下的Object批量添加或删除特定脚本
+- 在制作的过程中发现正确的脚本位置移动方法是meta与cs一并**剪切**到指定位置
