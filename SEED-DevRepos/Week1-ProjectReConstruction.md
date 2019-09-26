@@ -47,6 +47,9 @@ PS:子类会共享父类的非private静态数据成员
 - 去除了无用的布尔值noeffect，修改&&判断的顺序，减少判断开销
 - 增加数据成员以存储特定的Component组件，减少GetComponent的额外开销
 
+### 取舍
+- 为了获得正常的游戏效果，需要在增添一个布尔值和不断地调用setActive函数之间进行取舍
+
 
 ## HumanController
 - 为了限制人物移动，此前采用的是直接设置`GetComponent<HumanController>().enabled`.为了增加代码的优雅程度并解耦，增加了布尔值m_Movable与FixedMovement固定位移函数
@@ -55,4 +58,14 @@ PS:子类会共享父类的非private静态数据成员
 - 新增displacement函数以处理位移逻辑
 
 ## FireBallon
-- 增加热气球停止时调用clearAffection
+- 增加热气球停止时调用clearAffection函数，减少开销
+
+## 享元模式
+- 为了复用内存中已经驻留的资源（玩家与Element元素所加载的心跳波Sphere模型）以减少频繁的IO耗时操作，我引入了两个脚本MonoSingleton与ObejectPool
+### MonoSingleton
+- 本类为单例基类，是对象池的父类
+
+### ObejectPool
+- 本类即对象池，提供对象创建、回收、延迟回收、释放资源等功能
+- 为了确保Sphere在复用时有正确的表现形式，我自定义了一个合适的reset函数
+- 未来如果有其它对象需要使用对象池则重写reset函数即可
