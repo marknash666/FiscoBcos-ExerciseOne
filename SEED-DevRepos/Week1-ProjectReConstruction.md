@@ -52,7 +52,7 @@ PS:子类会共享父类的非private静态数据成员
 
 
 ## HumanController
-- 为了限制人物移动，此前采用的是直接设置`GetComponent<HumanController>().enabled`.为了增加代码的优雅程度并解耦，增加了布尔值m_Movable与FixedMovement固定位移函数
+- 此前若需要限制人物移动，我们采用的是直接设置`GetComponent<HumanController>().enabled`<br/>为了增加代码的优雅程度并解耦，增加了布尔值m_Movable与FixedMovement固定位移函数
 
 ## Boat
 - 新增displacement函数以处理位移逻辑
