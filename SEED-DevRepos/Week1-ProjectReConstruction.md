@@ -2,8 +2,8 @@
 
 ## Element & 子类
 ### 命名优化
-- 修改变量名ifintest为isAffected；修改函数名beforetest为requestAffected;<br/>修改函数名intest为Affected
-- 删除无用的时间变量testtime与函数afertest
+- 修改变量名ifintest为isAffected；修改函数名beforetest为inAffecttion;<br/>修改函数名intest为Affected；修改函数名aftertest为clearAffection
+- 删除无用的时间变量testtime
 - 删除Update中无用的时间判断逻辑
 
 ### 资源获取
@@ -52,4 +52,7 @@ PS:子类会共享父类的非private静态数据成员
 - 为了限制人物移动，此前采用的是直接设置`GetComponent<HumanController>().enabled`.为了增加代码的优雅程度并解耦，增加了布尔值m_Movable与FixedMovement固定位移函数
 
 ## Boat
-- 新增displacement函数，处理位移逻辑
+- 新增displacement函数以处理位移逻辑
+
+## FireBallon
+- 增加热气球停止时调用clearAffection
