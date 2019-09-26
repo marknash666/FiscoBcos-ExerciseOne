@@ -34,3 +34,22 @@ PS:子类会共享父类的非private静态数据成员
     - 根据需要获取一个拥有目标脚本的GameObject的List
     - 为这个List下的Object批量添加或删除特定脚本
 - 在制作的过程中，发现正确的脚本位置移动方法是meta与cs一并**剪切**到指定位置
+-----------------------------------------
+
+## RockCube
+
+- 布尔值ischange改为isChanged
+- 增加了双协程形式实现的的方块消失与位移
+
+## WaterCube
+- 分离OnTriggerStay中的`transform.Find("top").gameObject.SetActive(false)`与“玩家GameObject的查找、存储”等逻辑至OnTriggerEnter; 将OnTriggerStay原有的船与人物控制代码改为调用相应的接口
+- 增加冰块化水时间的变量（原为硬编码）
+- 去除了无用的布尔值noeffect，修改&&判断的顺序，减少判断开销
+- 增加数据成员以存储特定的Component组件，减少GetComponent的额外开销
+
+
+## HumanController
+- 为了限制人物移动，此前采用的是直接设置`GetComponent<HumanController>().enabled`.为了增加代码的优雅程度并解耦，增加了布尔值m_Movable与FixedMovement固定位移函数
+
+## Boat
+- 新增displacement函数，处理位移逻辑
