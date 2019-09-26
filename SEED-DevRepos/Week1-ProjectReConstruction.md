@@ -69,3 +69,5 @@ PS:子类会共享父类的非private静态数据成员
 - 本类即对象池，提供对象创建、回收、延迟回收、释放资源等功能
 - 为了确保Sphere在复用时有正确的表现形式，我自定义了一个合适的reset函数
 - 未来如果有其它对象需要使用对象池则重写reset函数即可
+- 听说SetAcvtive函数的开销并不小，在此记录一种将物体移动到屏幕外的替代方案
+https://blog.csdn.net/Believe_Shuai/article/details/81237975
