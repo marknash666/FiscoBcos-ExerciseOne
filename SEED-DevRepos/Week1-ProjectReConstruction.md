@@ -59,6 +59,11 @@ PS:子类会共享父类的非private静态数据成员
 
 ## FireBallon
 - 增加热气球停止时调用clearAffection函数，减少开销
+- 去掉无用的布尔值canshow
+
+## Girl
+- 代码中的关卡切换逻辑可以**考虑**归并到World控制脚本中
+
 
 ## 享元模式
 - 为了复用内存中已经驻留的资源（玩家与Element元素所加载的心跳波Sphere模型）以减少频繁的IO耗时操作，我引入了两个脚本MonoSingleton与ObejectPool
