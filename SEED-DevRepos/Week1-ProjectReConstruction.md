@@ -76,3 +76,20 @@ PS:子类会共享父类的非private静态数据成员
 - 未来如果有其它对象需要使用对象池则重写reset函数即可
 - 听说SetAcvtive函数的开销并不小，在此记录一种将物体移动到屏幕外的替代方案
 https://blog.csdn.net/Believe_Shuai/article/details/81237975
+
+_______________________________________
+
+## MazeController
+- 分离控制逻辑，将原本对玩家component进行的enable、disable操作替换成调用相应的接口，进行解耦
+- 将对玩家Animator参数的直接操控改为调用HumanController封装的接口
+- 将Camera_maze*相机的移动逻辑封装在CameraRotate内部、去掉布尔值once
+- 修改大量逻辑，简化代码
+
+
+## CameraRotate & _Camera
+- 将MazeController中的移动逻辑封装成接口transitionToTarget供外部调用
+- 修改/增加布尔值isMoving为forcedMode，作为外力作用的标识
+
+
+## HumanController
+- 增加动画设定接口，供外部调用
