@@ -22,8 +22,6 @@
 ## CameraRotate 
 - 删除本脚的大量职责，仅剩一个位置重置函数（Update：函数逻辑已全部无用）
 
-## WorldTwo
-- 根据新的镜头offset逻辑增加相关的重置代码
 --------------------------------------------------------------------------
 ## HumanController
 - 重命名FixedDisplacement为restrictMovement,将位移逻辑分离出来放入displacement函数中
@@ -36,6 +34,7 @@
 
 ## WorldTwo 
 - 根据新的相机代码调整revive函数代码，确保相机的正确表现
+- 根据新的镜头offset逻辑增加相关的重置代码
 
 ## MusicCube
 - 优化布尔值命名
