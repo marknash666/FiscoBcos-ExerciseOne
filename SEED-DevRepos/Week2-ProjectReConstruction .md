@@ -64,3 +64,20 @@
 ## Ball 
 - 优化“限制心跳波一次影响多个物体”的逻辑，修改布尔值命名
 - 优化脚本获取逻辑
+
+----------------------------------------------------------
+## HumanController （与 PlayerMove合并）
+- 将HumanController改用Character Controller控制浮空逻辑
+- Character Controller 的 isGrounded 判断需要我们给予模型一点y轴负方向的位移以确保模型与地面的贴合（大量调试工作）
+- m_Movement逻辑优化
+- 优化掉落逻辑
+- 踩坑记录：
+    - 需要将玩家瞬移时应先disable Character Controller 
+    - 此前，TriggerTest脚本的OnTriggerEnter与玩家自身用于判断是否在地面上的Trigger是冲突的，造成实现效果非常差；引入Character Controller后，可以将玩家自身的Trigger删除，贴片复活脚本的功能能满足现实
+
+## WaterCube 
+- 增加水块与船的距离判断逻辑，拉大了船身，极大地优化了船的表现形式
+- 通过HumanController的优化改善了玩家从船上掉落的表现形式
+
+## _Camera
+- 增加offset存储函数saveOffset，确保复活时镜头的正确表现形式
