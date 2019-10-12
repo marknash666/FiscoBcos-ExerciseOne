@@ -25,7 +25,7 @@
 --------------------------------------------------------------------------
 ## HumanController
 - 重命名FixedDisplacement为restrictMovement,将位移逻辑分离出来放入displacement函数中
-- FixedDisplacement添加重力开关
+- FixedDisplacement添加重力开关参数
 
 ## Player
 - 优化状态函数命名为：ControlRequest,beingControlled,Release和布尔值命名
@@ -48,3 +48,19 @@
 
 ## BirdTwo
 - 利用对象池重写心跳波的实例化
+
+## MusicStone
+- 将material的rendering mode改为Fade，修复了云的表现形式（渐隐渐显）
+- 更正materialRenderer的开启和关闭逻辑
+
+## FadeCube 
+- 精简逻辑
+
+## Slide 
+- 优化实例获取逻辑
+- 更新人物移动限制逻辑
+- 优化人物滑落的表现形式
+
+## Ball 
+- 优化“限制心跳波一次影响多个物体”的逻辑，修改布尔值命名
+- 优化脚本获取逻辑
