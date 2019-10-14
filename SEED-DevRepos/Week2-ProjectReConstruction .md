@@ -78,6 +78,8 @@
 ## WaterCube 
 - 增加水块与船的距离判断逻辑，拉大了船身，极大地优化了船的表现形式
 - 通过HumanController的优化改善了玩家从船上掉落的表现形式
+- 修复了场景的一些bug
 
 ## _Camera
 - 增加offset存储函数saveOffset，确保复活时镜头的正确表现形式
+
