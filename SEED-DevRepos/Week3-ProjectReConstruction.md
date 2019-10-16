@@ -42,7 +42,7 @@
 
 ## BirdTwo
 - 将原有的布尔值controlPlayer和cancontrol改为枚举类型Idle，Transition,Controlled,PlayerCaught，使得逻辑更加清晰
-- 去掉了keepPlayer函数吗，使得控制逻辑全部在beingControl中通过枚举配合switch case实现状态机
+- 去掉了keepPlayer函数，使得控制逻辑全部在beingControl中通过枚举配合switch case实现状态机
 
 ## Horse
 - 将触发鸟笼开启的一系列写成操作转移到世界控制脚本中，对Horse与相关脚本进行合理的解耦
