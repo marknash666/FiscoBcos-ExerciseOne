@@ -22,3 +22,19 @@
 
 ## PeopleControl 
 - 将心跳波Sphere同样改为静态加载
+- 更改了beforeControl的调用位置，更好理解
+--------------------------
+## WorldPlot 
+- 更新createdialog、delete的判断逻辑，简化代码
+- 删除无用的create函数
+
+## TipCube 
+- 精简了几乎所有代码，将之前的冗余代码逻辑归并至CanvasControl，使得代码更加简洁明了易读
+
+## CanvasControl
+- 重构了弹窗计数的逻辑
+- 添加了numsofTips代码供外部调用，弹出对应数量的提示
+- 优化了代码的判断逻辑
+
+
+
