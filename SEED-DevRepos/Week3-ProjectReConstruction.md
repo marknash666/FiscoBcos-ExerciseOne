@@ -36,5 +36,8 @@
 - 添加了numsofTips代码供外部调用，弹出对应数量的提示
 - 优化了代码的判断逻辑
 
+## PeopleControl
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-seedDev/Main.jpg)
 
 
+s
