@@ -38,6 +38,19 @@
 
 ## PeopleControl
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-seedDev/Main.jpg)
+- 实际上，在本游戏的设计中，可操控物体的状态转移图可以概括为上图。据此，设计了两种请求函数和两个退出函数供状态转移使用
+
+## BirdTwo
+- 将原有的布尔值controlPlayer和cancontrol改为枚举类型Idle，Transition,Controlled,PlayerCaught，使得逻辑更加清晰
+- 去掉了keepPlayer函数吗，使得控制逻辑全部在beingControl中通过枚举配合switch case实现状态机
+
+## Horse
+- 将触发鸟笼开启的一系列写成操作转移到世界控制脚本中，对Horse与相关脚本进行合理的解耦
+- 添加音乐播放函数接口
+
+## InputLayer
+- 添加输入控制层，负责处理外部输入的移动逻辑，将外界输入和内部的逻辑处理添加了一层中间层并进行总控，提高了代码的可维护性和拓展性:封装了Input.GetAxis,Input.GeyKey,Input.GetKeyDown等函数
+- 所有可被操控物体的移动输入都会从InputLayer的getMovementInput函数中获取，其余跳跃和交互则可调用getJumpState，getInteractionState
 
 
-s
+
