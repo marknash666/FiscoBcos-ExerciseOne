@@ -21,8 +21,14 @@
 - 添加了ScriptableObject制作的FloatReference参数，声明了上下文无关的变量，直接替代了原有的GameManager
 - 添加了GameEvent逻辑，相当于增加一层Event Layer以减少Object之间的相互引用，增加了结构上的可拓展性
 
+## 本周整理前关系图
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-seedDev/%E6%95%B4%E7%90%86%E5%89%8D%E5%85%B3%E7%B3%BB%E5%9B%BE.jpg)
 
 
+
+
+## 本周整理总结
+-  
 
 ## _Camera 相机解耦突破口之一
 - 探寻Tweener机制：OnComplete则会清除此前设置的回调，而onComplete可以用于函数回调的叠加。新发现可以使得我们能够基本将Camera的API使用内置了很大一部分，仅有的两个过渡函数可以封装在WorldControl中，完成了Camera与其余脚本的解耦
