@@ -11,7 +11,7 @@
     - 合并了PlayerMove（钢琴关）和HumanController（游乐场关和天使恶魔关），减少了代码冗余并提高了代码可读性
     - 
 - 针对资源获取和使用添加了对象池、资源静态初始化方法--通过享元设计模式优化了对象的复用
-- 对所有类的参数和函数名进行了初步的命名优化，重点为状态的函数名修改
+- 对所有类的参数和函数名进行了初步的改命名优化，重点为状态的函数名修
 - 对一些类的功能实现进行修复（包括WaterCube、MusicStone、MazeController）
 - 为了解决脚本移动的时候出现的missing情况，我制作了一个能够遍历GameObject并查找missing or Specific Scrpits的编辑器。功能目前有两种：
         - 根据需要获取一个拥有目标脚本的GameObject的List
@@ -21,17 +21,21 @@
 - 添加了ScriptableObject制作的FloatReference参数，声明了上下文无关的变量，直接替代了原有的GameManager
 - 添加了GameEvent逻辑，相当于增加一层Event Layer以减少Object之间的相互引用，增加了结构上的可拓展性
 
-## 本周整理前关系图
+## 整理前关系图
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-seedDev/%E6%95%B4%E7%90%86%E5%89%8D%E5%85%B3%E7%B3%BB%E5%9B%BE.jpg)
 
 
 
 
 ## 本周整理总结
--  
+-  深入优化了参数和函数的命名，对排版进行了大量修改。将性质相似的参数进行了归类并做好了不同类别之间的分隔
+- 对函数逻辑进行了语义切分，便于阅读理解
+- 从顶层模块关系出发，将WorldControl作为CanvasModule、Camera与其他脚本沟通的桥梁，真正地让WorldControl发挥总控的功能以降低耦合程度
+- 对一些脚本进行了重新归类，从项目结构上进行了一些小优化，实现了模块内部的高内聚
+
 
 ## _Camera 相机解耦突破口之一
-- 探寻Tweener机制：OnComplete则会清除此前设置的回调，而onComplete可以用于函数回调的叠加。新发现可以使得我们能够基本将Camera的API使用内置了很大一部分，仅有的两个过渡函数可以封装在WorldControl中，完成了Camera与其余脚本的解耦
+- 探寻Tweener机制：OnComplete则会清除此前设置的回调，而onComplete可以用于函数回调的叠加。新发现可以使得我们能够基本将Camera的API使用内置了很大一部分，仅有的两个过渡函数可以封装在WorldControl中。这允许我们实现Camera与其余脚本的解耦
 
 ## CharacterController
 - 踩坑：minMoveDistance的设置会导致CharacterController的isGrounded判定出现问题
@@ -44,6 +48,9 @@
 ## WorldControl
 - 添加与相机相关的API，使得Camera和Element、Player等需要移动或者镜头过渡的类解耦
 - 添加CanvasControl相关的API，将一些需要调用ShowSpecialTip以显示弹窗的类与Canvas模块解耦
+
+## 整理前关系图
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-seedDev/%E6%95%B4%E7%90%86%E5%89%8D%E5%85%B3%E7%B3%BB%E5%9B%BE.jpg)
 
 
 
