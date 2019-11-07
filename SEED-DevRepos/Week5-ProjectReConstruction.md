@@ -21,7 +21,7 @@
 - 添加了ScriptableObject制作的FloatReference参数，声明了上下文无关的变量，直接替代了原有的GameManager
 - 添加了GameEvent逻辑，相当于增加一层Event Layer以减少Object之间的相互引用，增加了结构上的可拓展性
 
-## 整理前关系图
+## 前几周整理得到的关系图
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-seedDev/%E6%95%B4%E7%90%86%E5%89%8D%E5%85%B3%E7%B3%BB%E5%9B%BE.jpg)
 
 
@@ -49,7 +49,7 @@
 - 添加与相机相关的API，使得Camera和Element、Player等需要移动或者镜头过渡的类解耦
 - 添加CanvasControl相关的API，将一些需要调用ShowSpecialTip以显示弹窗的类与Canvas模块解耦
 
-## 整理前关系图
+## 本周整理后的关系图
 ![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-seedDev/%E6%95%B4%E7%90%86%E5%90%8E%E5%85%B3%E7%B3%BB%E5%9B%BE.jpg)
 
 
