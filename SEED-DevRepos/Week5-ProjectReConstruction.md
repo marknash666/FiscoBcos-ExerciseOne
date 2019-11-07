@@ -50,7 +50,7 @@
 - 添加CanvasControl相关的API，将一些需要调用ShowSpecialTip以显示弹窗的类与Canvas模块解耦
 
 ## 整理前关系图
-![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-seedDev/%E6%95%B4%E7%90%86%E5%89%8D%E5%85%B3%E7%B3%BB%E5%9B%BE.jpg)
+![](https://github.com/marknash666/FiscoBcos-Exercises/blob/master/images/image-for-seedDev/%E6%95%B4%E7%90%86%E5%90%8E%E5%85%B3%E7%B3%BB%E5%9B%BE.jpg)
 
 
 
