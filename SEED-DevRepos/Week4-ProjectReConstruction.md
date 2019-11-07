@@ -15,8 +15,8 @@
     - 替代GameManager，将Player、CanvasController和Ball与GameManager解耦，取而代之的是一个FloatReference类。我们可以通过public拖拽或者是Resource.load的方式使得类与变量HeartFrequency直接关联
 
 - 用途2：制作自己的GameEvent
-    - 相当于增加一层Event Layer将Object之间相互的接口调用进行了解耦，增加了结构上的可拓展性---事件的触发将会调用所有已订阅的Listeners（观察者模式）的Response时间，这种方式使得我们不需要让事件的触发者去持有目标对象的引用，让大规模的事件回应变得易于管理且易读
-    - 适用于多个Scripts需要响应同一个事件的情况，对总控形脚本的替代性则显得没有太大意义（反而增加代码量）
+    - 相当于增加一层Event Layer以减少Object之间相互的引用，增加了结构上的可拓展性---事件的触发将会调用所有已订阅的Listeners（观察者模式）的Response时间，这种方式使得我们不需要让事件的触发者去持有目标对象的引用，让大规模的事件回应变得易于管理且易读
+    - 适用于多个Scripts需要响应同一个事件的情况，对目前CanYouFeelMe的总控形脚本的显得没有太大意义（反而增加代码量）
 
 
 
